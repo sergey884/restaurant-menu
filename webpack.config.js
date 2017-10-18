@@ -16,6 +16,9 @@ module.exports = {
 		chunkFilename: '[id].chunk.js'
 	},
 	devtool: development ? 'cheap-eval-source-map' : 'source-map',
+	resolve: {
+	  extensions: ['.ts', '.js']
+	},
 	module: {
 		rules: [
 			{
@@ -33,6 +36,12 @@ module.exports = {
 		]	
 	},
 	plugins: [
+		new webpack.ContextReplacementPlugin(
+	  		// The (\\|\/) piece accounts for path separators in *nix and Windows
+	  		/angular(\\|\/)core(\\|\/)@angular/,
+	  		path.resolve(__dirname, 'src'), // location of your src
+	  		{} // a map of your routes
+		),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: ['app', 'vendor', 'polyfills']
 		}),

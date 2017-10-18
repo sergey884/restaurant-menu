@@ -16,6 +16,7 @@
     "@angular/platform-browser": "^4.4.5",
     "@angular/platform-browser-dynamic": "^4.4.5",
     "@angular/router": "^4.4.5",
+    "@types/node": "^8.0.45",
     "awesome-typescript-loader": "^3.2.3",
     "core-js": "^2.5.1",
     "html-webpack-plugin": "^2.30.1",
