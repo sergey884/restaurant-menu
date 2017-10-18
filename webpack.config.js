@@ -22,16 +22,26 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.ts$/,
-				exclude: path.resolve(__dirname, 'node_modules'),
-				loader: 'awesome-typescript-loader',
-				options: { 
-					configFileName: path.resolve(__dirname, 'tsconfig.json') 
-				}
+		  		test: /\.ts$/,
+		  		loaders: [
+		    		{
+		      			loader: 'awesome-typescript-loader',
+		      			options: { configFileName: path.resolve(__dirname, 'tsconfig.json') }
+		    		} , 'angular2-template-loader'
+		  		]
 			},
 			{
 				test: /\.scss$/,
 				loader: 'sass-loader'
+			},
+			{
+			  	test: /\.html$/,
+			  	loader: 'html-loader'
+			},
+			{
+			  	test: /\.css$/,
+			  	include: path.resolve(__dirname, 'src', 'app'),
+			  	loader: 'raw-loader'
 			}
 		]	
 	},
@@ -55,6 +65,7 @@ module.exports = {
 	devServer: {
 		contentBase: path.resolve(__dirname, 'public'),
 		host: "localhost",
-		port: 3000
+		port: 3000,
+		historyApiFallback: true
 	}
 };
