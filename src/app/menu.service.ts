@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import { MenuItem } from './menu';
+
+import 'rxjs/add/operator/map';
 
 const menu_items: MenuItem[] = [
   {
@@ -20,7 +24,18 @@ const menu_items: MenuItem[] = [
 
 @Injectable()
 export class MenuService {
-	getMenuItems() : MenuItem[] {
-		return menu_items;
+	private apiUrl = 'https://davids-restaurant.herokuapp.com/categories.json';
+
+	constructor(
+		private http: Http
+	) {}
+
+	getMenuItems(): Observable<MenuItem[]> {
+		return this.http
+				.get(this.apiUrl)
+				.map(response => {
+					console.log(response.json());
+					return response.json() as MenuItem[];
+				});
 	}
 }

@@ -1,1 +1,13 @@
-<h3>Menu-item-component</h3>
+<div style="position: relative;">
+<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+  <div class="d-flex w-100 justify-content-between">
+    <h5 class="mb-1">{{ menu_item.id}}. {{ menu_item.name }}</h5>
+    <small>{{ menu_item.short_name }}</small>
+  </div>
+  <p class="mb-1">{{menu_item.special_instructions}}</p>
+</a>
+
+ <button type="button" class="btn btn-primary" 
+ 					style="position: absolute; right: 5px; bottom: 5px;" 
+ 					(click)="onDelete($event)">Delete</button>
+ </div>

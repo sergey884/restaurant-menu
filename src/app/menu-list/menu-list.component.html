@@ -1,4 +1,5 @@
-<h2>men-listcompoentn</h2>
-<div *ngFor="let item of menu_list">{{item.id}}</div>
-
-<menu-item></menu-item>
+<h2>Categories list</h2>
+<a routerLink="" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Go to home page</a>
+<div class="list-group" *ngIf="menu_list.length">
+	<menu-item *ngFor="let item of menu_list" [menu_item]="item" (delete)="deleteMenuListItem($event)"></menu-item>
+</div>
