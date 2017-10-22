@@ -7,7 +7,9 @@ import { MenuService } from './menu.service';
 import { AppComponent } from "./app.component";
 import { Home } from "./home/home.component";
 import { MenuListComponent } from "./menu-list/menu-list.component";
-import { MenuItemComponent } from './menu-item/menu-item.component';
+import { MenuCategoriesComponent } from './menu-categories/menu-categories.component';
+import { MenuItemsComponent } from './menu_items/menu_items.component';
+import { PageNotFoundComponent } from './PageNotFound/PageNotFound.component';
 
 const appRoutes: Routes = [
 	{
@@ -17,6 +19,14 @@ const appRoutes: Routes = [
 	{
 		path: "categories",
 		component: MenuListComponent
+	},
+	{
+		path: "items/:id",
+		component: MenuItemsComponent
+	},
+	{
+		path: "**",
+		component: PageNotFoundComponent
 	}
 ];
 
@@ -30,7 +40,9 @@ const appRoutes: Routes = [
 		AppComponent,
 		Home,
 		MenuListComponent,
-		MenuItemComponent
+		MenuCategoriesComponent,
+		MenuItemsComponent,
+		PageNotFoundComponent
 	],
 	bootstrap: [
 		AppComponent

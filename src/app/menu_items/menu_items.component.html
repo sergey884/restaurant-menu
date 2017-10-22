@@ -1,0 +1,8 @@
+<h2>MenuItems</h2>
+<a routerLink="/categories" class="btn btn-primary btn-lg" role="button">Categories list</a>
+<a routerLink="" class="btn btn-primary btn-lg" role="button">Go to home page</a>
+<ul class="list-group">
+	<li *ngFor="let it of items | async" class="list-group-item">
+		<h5>{{it.id}}. {{it.name}}</h5>
+  	</li>
+</ul>
